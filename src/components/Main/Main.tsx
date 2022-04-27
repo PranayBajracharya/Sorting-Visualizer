@@ -8,25 +8,33 @@ const Main: React.FC<{
     comparing: Array<number | null>;
     swapping: number[];
     sorted: number[];
+    length: number;
 }> = (props) => {
-    const { sortingArray, comparing, swapping, sorted } = props;
+    const { sortingArray, comparing, swapping, sorted, length } = props;
     return (
         <div className={classes.main}>
             {sortingArray.map((arrayItem, index) => {
                 let color: string = "lavender";
-                
+
                 if (comparing.includes(index)) {
                     color = "yellow";
                 }
-                
+
                 if (swapping.includes(index)) {
                     color = "red";
                 }
-                
+
                 if (sorted.includes(index)) {
                     color = "green";
                 }
-                return <Bar key={index} arrayItem={arrayItem} color={color} />;
+                return (
+                    <Bar
+                        key={index}
+                        arrayItem={arrayItem}
+                        color={color}
+                        length={length}
+                    />
+                );
             })}
         </div>
     );

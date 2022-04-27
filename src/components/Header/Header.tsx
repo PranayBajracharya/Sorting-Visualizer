@@ -5,12 +5,18 @@ const Header: React.FC<{
     setStart: () => void;
     randomize: () => void;
     speed: number;
+    length: number;
     setSpeed: (number: number) => void;
+    setLength: (number: number) => void;
 }> = (props) => {
-    const { setStart, randomize, speed, setSpeed } = props;
+    const { setStart, randomize, speed, length, setSpeed, setLength } = props;;
 
     const speedHandler = (event: any) => {
         setSpeed(event.target.valueAsNumber);
+    };
+
+    const lengthHandler = (event: any) => {
+        setLength(event.target.valueAsNumber);
     };
 
     return (
@@ -26,6 +32,17 @@ const Header: React.FC<{
                         max="100"
                         value={speed}
                         onChange={speedHandler}
+                    />
+                </div>
+                <div className={classes.slider}>
+                    <label htmlFor="length">Length</label>
+                    <input
+                        id="length"
+                        type="range"
+                        min="5"
+                        max="50"
+                        value={length}
+                        onChange={lengthHandler}
                     />
                 </div>
                 <button onClick={randomize}>Randomize Array</button>
