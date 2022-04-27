@@ -24,6 +24,7 @@ function App() {
     const [comparing, setComparing] = useState<Array<number | null>>([]);
     const [swapping, setSwapping] = useState<number[]>([]);
     const [sortedIndex, setSortedIndex] = useState<number[]>([]);
+    const [speed, setSpeed] = useState<number>(20);
 
     const randomize = () => {
         setSortingArray(randomizedArray());
@@ -46,13 +47,13 @@ function App() {
                 if (index !== null) {
                     setSortedIndex((prevState) => [...prevState, index]);
                 }
-            }, i * 100);
+            }, i * (1000 / speed));
         }
     };
 
     return (
         <div className="App">
-            <Header setStart={SortHandler} randomize={randomize}/>
+            <Header setStart={SortHandler} randomize={randomize} speed={speed} setSpeed={setSpeed}/>
             <Main
                 sortingArray={sortingArray}
                 comparing={comparing}

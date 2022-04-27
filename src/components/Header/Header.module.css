@@ -2,3 +2,17 @@
     display: flex;
     justify-content: space-around;
 }
+
+.settings {
+    display: flex;
+    align-items: center;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+}
+
+.slider label {
+    margin-right: 10px;
+}
