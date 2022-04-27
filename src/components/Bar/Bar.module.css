@@ -1,0 +1,12 @@
+.barDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.bar {
+    /* background-color: lavender; */
+    min-width: 30px;
+    position: relative;
+}
