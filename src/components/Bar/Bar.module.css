@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 5px;
 }
 
 .bar {
     /* background-color: lavender; */
-    min-width: 30px;
+    min-width: 20px;
     position: relative;
 }

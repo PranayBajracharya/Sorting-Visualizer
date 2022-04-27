@@ -5,7 +5,7 @@ import classes from "./Main.module.css";
 
 const Main: React.FC<{
     sortingArray: number[];
-    comparing: number[];
+    comparing: Array<number | null>;
     swapping: number[];
     sorted: number[];
 }> = (props) => {

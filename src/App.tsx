@@ -5,28 +5,38 @@ import bubbleSort from "./algorithms/bubbleSort";
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
 
-const array = Array.from({ length: 10 }, () =>
-    Math.floor(Math.random() * 500 + 1)
-);
-// console.log(array);
+const randomizedArray = (): number[] => {
+    const randomArray = Array.from(Array(50 + 1).keys()).slice(1);
+
+    for (let i = randomArray.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i - 1))
+        
+        const temp = randomArray[i]
+        randomArray[i] = randomArray[randomIndex]
+        randomArray[randomIndex] = temp
+    }
+
+    return randomArray;
+}
 
 function App() {
-    const [sortingArray, setSortingArray] = useState<number[]>(array);
-    const [comparing, setComparing] = useState<number[]>([]);
+    const [sortingArray, setSortingArray] = useState<number[]>(randomizedArray());
+    const [comparing, setComparing] = useState<Array<number | null>>([]);
     const [swapping, setSwapping] = useState<number[]>([]);
     const [sortedIndex, setSortedIndex] = useState<number[]>([]);
 
+    const randomize = () => {
+        setSortingArray(randomizedArray());
+    };
+
     const SortHandler = () => {
-        const order = bubbleSort(array);
-        // console.log(order);
+        const order = bubbleSort(sortingArray);
 
         for (let i = 0; i < order.length; i++) {
-            const [j, k, arr, index] = order[i];
             setTimeout(() => {
-                if (j !== null && k !== null) {
-                    setComparing([j, k]);
-                    setSwapping([]);
-                }
+                const [j, k, arr, index] = order[i];
+                setComparing([j, k]);
+                setSwapping([]);
 
                 if (arr && j && k) {
                     setSortingArray(arr);
@@ -36,13 +46,13 @@ function App() {
                 if (index !== null) {
                     setSortedIndex((prevState) => [...prevState, index]);
                 }
-            }, i * 1500);
+            }, i * 100);
         }
     };
 
     return (
         <div className="App">
-            <Header setStart={SortHandler} />
+            <Header setStart={SortHandler} randomize={randomize}/>
             <Main
                 sortingArray={sortingArray}
                 comparing={comparing}

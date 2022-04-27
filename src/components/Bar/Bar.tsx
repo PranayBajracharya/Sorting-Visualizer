@@ -6,7 +6,7 @@ const Bar: React.FC<{ arrayItem: number; color: string }> = (props) => {
             <div
                 className={classes.bar}
                 style={{
-                    height: `${props.arrayItem / 8}vh`,
+                    height: `${props.arrayItem}vh`,
                     backgroundColor: props.color,
                 }}
             ></div>
