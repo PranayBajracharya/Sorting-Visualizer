@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import bubbleSort from "./algorithms/bubbleSort";
+import insertionSort from "./algorithms/insertionSort";
 
 import "./App.css";
 import Main from "./components/Main/Main";
@@ -21,6 +22,7 @@ const randomizedArray = (length: number): number[] => {
 };
 
 function App() {
+    const [algorithm, setAlgorithm] = useState<string>("BubbleSort");
     const [comparing, setComparing] = useState<Array<number | null>>([]);
     const [swapping, setSwapping] = useState<number[]>([]);
     const [sortedIndex, setSortedIndex] = useState<number[]>([]);
@@ -50,8 +52,9 @@ function App() {
     const SortHandler = (): void => {
         reset();
         setIsSorting(true);
-        const order = bubbleSort(sortingArray);
-        // console.log(order);
+
+        const order = insertionSort(sortingArray);
+
         for (let i = 0; i < order.length; i++) {
             setTimeout(() => {
                 const [j, k, arr, index] = order[i];

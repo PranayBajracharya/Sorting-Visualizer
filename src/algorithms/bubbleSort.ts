@@ -1,4 +1,4 @@
-type Order = Array < [number | null, number | null, number[] | null, number | null] >;
+import Order from "./type";
 
 function bubbleSort (arr: number[]): Order {
 

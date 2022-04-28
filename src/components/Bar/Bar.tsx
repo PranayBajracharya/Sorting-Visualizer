@@ -8,7 +8,7 @@ const Bar: React.FC<{ arrayItem: number; color: string; length: number; }> = (pr
             <div
                 className={classes.bar}
                 style={{
-                    height: `${arrayItem / length * 100}%`,
+                    height: `${arrayItem / (length + 1) * 100}%`,
                     backgroundColor: color,
                 }}
             ></div>
