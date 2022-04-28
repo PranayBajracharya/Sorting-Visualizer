@@ -22,3 +22,16 @@
 .slider label {
     margin-right: 10px;
 }
+
+button,
+select {
+    height: 30px;
+    padding: 8px;
+    background-color: white;
+    border: none;
+}
+
+button:hover,
+select:hover {
+    background-color: #eee;
+}

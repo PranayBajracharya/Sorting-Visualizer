@@ -31,8 +31,8 @@ function App() {
     const [comparing, setComparing] = useState<Array<number | null>>([]);
     const [swapping, setSwapping] = useState<Array<number | null>>([]);
     const [sortedIndex, setSortedIndex] = useState<number[]>([]);
-    const [speed, setSpeed] = useState<number>(1);
-    const [length, setLength] = useState<number>(10);
+    const [speed, setSpeed] = useState<number>(15);
+    const [length, setLength] = useState<number>(20);
     const [isSorting, setIsSorting] = useState<boolean>(false);
     const [sortingArray, setSortingArray] = useState<number[]>(
         randomizedArray(length)

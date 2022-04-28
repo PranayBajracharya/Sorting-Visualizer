@@ -10,4 +10,7 @@
 .bar {
     min-width: 20px;
     position: relative;
+    transition-property: height;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
 }
