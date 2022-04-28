@@ -4,6 +4,7 @@ import bubbleSort from "./algorithms/bubbleSort";
 import insertionSort from "./algorithms/insertionSort";
 import selectionSort from "./algorithms/selectionSort";
 import mergeSort from "./algorithms/mergeSort";
+import quickSort from "./algorithms/quickSort";
 
 import Order from "./algorithms/type";
 
@@ -92,6 +93,9 @@ function App() {
                 break;
             case "mergeSort":
                 startSorting(mergeSort(sortingArray));
+                break;
+            case "quickSort":
+                startSorting(quickSort(sortingArray));
                 break;
             default:
                 break;
