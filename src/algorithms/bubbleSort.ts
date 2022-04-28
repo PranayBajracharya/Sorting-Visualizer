@@ -1,6 +1,6 @@
 import Order from "./type";
 
-function bubbleSort (arr: number[]): Order {
+const bubbleSort = (arr: number[]): Order => {
 
     const duplicateArray: number[] = [...arr];
     const order: Order = [];
@@ -16,7 +16,7 @@ function bubbleSort (arr: number[]): Order {
                 duplicateArray[j] = duplicateArray[j + 1];
                 duplicateArray[j + 1] = temp;
 
-                order.push([j, j + 1, duplicateArray.slice(), null]);   //Swapping j, j + 1
+                order.push([j, j + 1, [...duplicateArray], null]);   //Swapping j, j + 1
             }
         }
         order.push([null, null, null, j]);    //j-th element is sorted

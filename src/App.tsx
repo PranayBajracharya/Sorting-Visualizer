@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import bubbleSort from "./algorithms/bubbleSort";
 import insertionSort from "./algorithms/insertionSort";
 import selectionSort from "./algorithms/selectionSort";
+import mergeSort from "./algorithms/mergeSort";
 
 import Order from "./algorithms/type";
 
@@ -27,7 +28,7 @@ const randomizedArray = (length: number): number[] => {
 function App() {
     const [algorithm, setAlgorithm] = useState<string>("selectionSort");
     const [comparing, setComparing] = useState<Array<number | null>>([]);
-    const [swapping, setSwapping] = useState<number[]>([]);
+    const [swapping, setSwapping] = useState<Array<number | null>>([]);
     const [sortedIndex, setSortedIndex] = useState<number[]>([]);
     const [speed, setSpeed] = useState<number>(1);
     const [length, setLength] = useState<number>(10);
@@ -62,7 +63,7 @@ function App() {
                 setComparing([j, k]);
                 setSwapping([]);
 
-                if (arr !==null && j !== null && k !== null) {
+                if (arr !==null) {
                     setSortingArray(arr);
                     setSwapping([j, k]);
                 }
@@ -90,7 +91,7 @@ function App() {
                 startSorting(selectionSort(sortingArray));
                 break;
             case "mergeSort":
-                // startSorting(mergeSort(sortingArray));
+                startSorting(mergeSort(sortingArray));
                 break;
             default:
                 break;
@@ -108,6 +109,7 @@ function App() {
                 setLength={setLength}
                 isSorting={isSorting}
                 setAlgorithm={setAlgorithm}
+                reset={reset}
             />
             <Main
                 sortingArray={sortingArray}

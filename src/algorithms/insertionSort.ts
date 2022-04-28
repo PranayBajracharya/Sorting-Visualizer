@@ -1,6 +1,6 @@
 import Order from "./type";
 
-function insertionSort(arr: number[]): Order {
+const insertionSort = (arr: number[]): Order => {
 
     const duplicateArray: number[] = [...arr];
     const order: Order = [];
@@ -16,7 +16,7 @@ function insertionSort(arr: number[]): Order {
             duplicateArray[j + 1] = temp;
             
             order.push([j, j + 1, null, null]);     //Comparing
-            order.push([j, j + 1, duplicateArray.slice(), null]);    //Swapping
+            order.push([j, j + 1, [...duplicateArray], null]);    //Swapping
             j--;
         }
     }

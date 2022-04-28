@@ -19,7 +19,7 @@ function selectionSort(arr: number[]): Order {
             let tmp = duplicateArray[i];
             duplicateArray[i] = duplicateArray[min];
             duplicateArray[min] = tmp;
-            order.push([i, min, duplicateArray.slice(), null]);   //Swapping
+            order.push([i, min, [...duplicateArray], null]);   //Swapping
         }
         order.push([null, null, null, i]);    //i-th element is sorted
     }

@@ -10,6 +10,7 @@ const Header: React.FC<{
     setLength: (number: number) => void;
     setAlgorithm: (algo: string) => void;
     isSorting: boolean;
+    reset: () => void;
 }> = (props) => {
     const {
         setStart,
@@ -20,6 +21,7 @@ const Header: React.FC<{
         setLength,
         isSorting,
         setAlgorithm,
+        reset,
     } = props;
 
     const speedHandler = (event: any) => {
@@ -27,6 +29,7 @@ const Header: React.FC<{
     };
 
     const lengthHandler = (event: any) => {
+        reset();
         setLength(event.target.valueAsNumber);
     };
 
