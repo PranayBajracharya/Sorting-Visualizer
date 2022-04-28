@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import bubbleSort from "./algorithms/bubbleSort";
 
+import "./App.css";
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
 
@@ -25,11 +26,20 @@ function App() {
     const [sortedIndex, setSortedIndex] = useState<number[]>([]);
     const [speed, setSpeed] = useState<number>(20);
     const [length, setLength] = useState<number>(20);
+    const [isSorting, setIsSorting] = useState<boolean>(false);
     const [sortingArray, setSortingArray] = useState<number[]>(
         randomizedArray(length)
     );
     
-    const randomize = () => {
+    const reset = (): void => {
+        setSwapping([]);
+        setComparing([]);
+        setSortedIndex([]);
+        setIsSorting(false);
+    }
+
+    const randomize = (): void => {
+        reset();
         setSortingArray(randomizedArray(length));
     };
 
@@ -37,9 +47,11 @@ function App() {
         setSortingArray(randomizedArray(length));
     }, [length]);
 
-    const SortHandler = () => {
+    const SortHandler = (): void => {
+        reset();
+        setIsSorting(true);
         const order = bubbleSort(sortingArray);
-        console.log(order);
+        // console.log(order);
         for (let i = 0; i < order.length; i++) {
             setTimeout(() => {
                 const [j, k, arr, index] = order[i];
@@ -47,13 +59,16 @@ function App() {
                 setSwapping([]);
 
                 if (arr !==null && j !== null && k !== null) {
-                    console.log(arr, i)
                     setSortingArray(arr);
                     setSwapping([j, k]);
                 }
 
                 if (index !== null) {
                     setSortedIndex((prevState) => [...prevState, index]);
+                }
+
+                if (i === order.length - 1) {
+                    setIsSorting(false);
                 }
             }, i * (1000 / speed));
         }
@@ -68,6 +83,7 @@ function App() {
                 length={length}
                 setSpeed={setSpeed}
                 setLength={setLength}
+                isSorting={isSorting}
             />
             <Main
                 sortingArray={sortingArray}

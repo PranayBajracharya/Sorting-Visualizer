@@ -4,6 +4,25 @@
     justify-content: center;
     margin-top: 50px;
     font-size: 12px;
-    height: 80vh;
+    height: 70vh;
 }
 
+.labels {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.labels > div {
+    display: flex;
+    align-items: center;
+}
+
+.colorBox {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}

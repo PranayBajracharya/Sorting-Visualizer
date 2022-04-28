@@ -8,8 +8,17 @@ const Header: React.FC<{
     length: number;
     setSpeed: (number: number) => void;
     setLength: (number: number) => void;
+    isSorting: boolean;
 }> = (props) => {
-    const { setStart, randomize, speed, length, setSpeed, setLength } = props;;
+    const {
+        setStart,
+        randomize,
+        speed,
+        length,
+        setSpeed,
+        setLength,
+        isSorting,
+    } = props;
 
     const speedHandler = (event: any) => {
         setSpeed(event.target.valueAsNumber);
@@ -28,10 +37,11 @@ const Header: React.FC<{
                     <input
                         id="speed"
                         type="range"
-                        min="10"
+                        min="1"
                         max="100"
                         value={speed}
                         onChange={speedHandler}
+                        disabled={isSorting}
                     />
                 </div>
                 <div className={classes.slider}>
@@ -43,10 +53,15 @@ const Header: React.FC<{
                         max="50"
                         value={length}
                         onChange={lengthHandler}
+                        disabled={isSorting}
                     />
                 </div>
-                <button onClick={randomize}>Randomize Array</button>
-                <button onClick={setStart}>Start Sorting</button>
+                <button onClick={randomize} disabled={isSorting}>
+                    Randomize Array
+                </button>
+                <button onClick={setStart} disabled={isSorting}>
+                    Start Sorting
+                </button>
             </div>
         </header>
     );
