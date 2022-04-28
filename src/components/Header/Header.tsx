@@ -8,6 +8,7 @@ const Header: React.FC<{
     length: number;
     setSpeed: (number: number) => void;
     setLength: (number: number) => void;
+    setAlgorithm: (algo: string) => void;
     isSorting: boolean;
 }> = (props) => {
     const {
@@ -18,6 +19,7 @@ const Header: React.FC<{
         setSpeed,
         setLength,
         isSorting,
+        setAlgorithm,
     } = props;
 
     const speedHandler = (event: any) => {
@@ -27,6 +29,10 @@ const Header: React.FC<{
     const lengthHandler = (event: any) => {
         setLength(event.target.valueAsNumber);
     };
+
+    const algorithmHandler = (event: any) => {
+        setAlgorithm(event.target.value);
+    }
 
     return (
         <header className={classes.header}>
@@ -55,6 +61,15 @@ const Header: React.FC<{
                         onChange={lengthHandler}
                         disabled={isSorting}
                     />
+                </div>
+                <div>
+                    <select onChange={algorithmHandler} disabled={isSorting}>
+                        <option value="bubbleSort">Bubble Sort</option>
+                        <option value="insertionSort">Insertion Sort</option>
+                        <option value="selectionSort">Selection Sort</option>
+                        <option value="mergeSort">Merge Sort</option>
+                        <option value="quickSort">Quick Sort</option>
+                    </select>
                 </div>
                 <button onClick={randomize} disabled={isSorting}>
                     Randomize Array

@@ -2,17 +2,17 @@ import Order from "./type";
 
 function bubbleSort (arr: number[]): Order {
 
-    const duplicateArray = [...arr];
+    const duplicateArray: number[] = [...arr];
     const order: Order = [];
 
-    let i, j;
+    let i: number, j: number;
     for (i = 0; i < duplicateArray.length; i++) {
         for (j = 0; j < duplicateArray.length - i - 1; j++) {
 
             order.push([j, j + 1, null, null]);    //Comparing j, j + 1
 
             if (duplicateArray[j] > duplicateArray[j + 1]) { 
-                let temp = duplicateArray[j];
+                let temp: number = duplicateArray[j];
                 duplicateArray[j] = duplicateArray[j + 1];
                 duplicateArray[j + 1] = temp;
 

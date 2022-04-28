@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 
 import bubbleSort from "./algorithms/bubbleSort";
 import insertionSort from "./algorithms/insertionSort";
+import selectionSort from "./algorithms/selectionSort";
+
+import Order from "./algorithms/type";
 
 import "./App.css";
 import Main from "./components/Main/Main";
@@ -22,12 +25,12 @@ const randomizedArray = (length: number): number[] => {
 };
 
 function App() {
-    const [algorithm, setAlgorithm] = useState<string>("BubbleSort");
+    const [algorithm, setAlgorithm] = useState<string>("selectionSort");
     const [comparing, setComparing] = useState<Array<number | null>>([]);
     const [swapping, setSwapping] = useState<number[]>([]);
     const [sortedIndex, setSortedIndex] = useState<number[]>([]);
-    const [speed, setSpeed] = useState<number>(20);
-    const [length, setLength] = useState<number>(20);
+    const [speed, setSpeed] = useState<number>(1);
+    const [length, setLength] = useState<number>(10);
     const [isSorting, setIsSorting] = useState<boolean>(false);
     const [sortingArray, setSortingArray] = useState<number[]>(
         randomizedArray(length)
@@ -49,11 +52,9 @@ function App() {
         setSortingArray(randomizedArray(length));
     }, [length]);
 
-    const SortHandler = (): void => {
+    const startSorting = (order: Order): void => {
         reset();
         setIsSorting(true);
-
-        const order = insertionSort(sortingArray);
 
         for (let i = 0; i < order.length; i++) {
             setTimeout(() => {
@@ -77,6 +78,25 @@ function App() {
         }
     };
 
+    const SortHandler = () => {
+        switch (algorithm) {
+            case "bubbleSort":
+                startSorting(bubbleSort(sortingArray));
+                break;
+            case "insertionSort":
+                startSorting(insertionSort(sortingArray));
+                break;
+            case "selectionSort":
+                startSorting(selectionSort(sortingArray));
+                break;
+            case "mergeSort":
+                // startSorting(mergeSort(sortingArray));
+                break;
+            default:
+                break;
+        }
+    } 
+
     return (
         <div className="App">
             <Header
@@ -87,6 +107,7 @@ function App() {
                 setSpeed={setSpeed}
                 setLength={setLength}
                 isSorting={isSorting}
+                setAlgorithm={setAlgorithm}
             />
             <Main
                 sortingArray={sortingArray}
