@@ -34,6 +34,13 @@ select:hover {
     background-color: #eee;
 }
 
+button:disabled,
+select:disabled {
+    background-color: #eee;
+    opacity: 1;
+    color: #111;
+}
+
 .settings {
     margin-right: 5rem;
 }
