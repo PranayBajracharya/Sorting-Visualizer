@@ -1,0 +1,20 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    flex-grow: 1;
+    background-color: #222;
+}
+
+.footer > div {
+    display: flex;
+    align-items: center;
+}
+
+.colorBox {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}

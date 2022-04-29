@@ -26,16 +26,16 @@ const Header: React.FC<{
         reset,
     } = props;
 
-    const speedHandler = (event: any) => {
+    const speedHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSpeed(event.target.valueAsNumber);
     };
 
-    const lengthHandler = (event: any) => {
+    const lengthHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         reset();
         setLength(event.target.valueAsNumber);
     };
 
-    const algorithmHandler = (event: any) => {
+    const algorithmHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setAlgorithm(event.target.value);
     };
 
@@ -43,24 +43,24 @@ const Header: React.FC<{
         <header className={classes.header}>
             <h1>Sorting Visualizer</h1>
             <div className={classes.nav}>
-                <div>
-                    <select onChange={algorithmHandler} disabled={isSorting}>
-                        <option value="bubbleSort">Bubble Sort</option>
-                        <option value="insertionSort">Insertion Sort</option>
-                        <option value="selectionSort">Selection Sort</option>
-                        <option value="mergeSort">Merge Sort</option>
-                        <option value="quickSort">Quick Sort</option>
-                    </select>
-                </div>
-                <button onClick={randomize} disabled={isSorting}>
-                    Randomize Array
-                </button>
                 <button onClick={setStart} disabled={isSorting}>
                     Start Sorting
                 </button>
+                <button onClick={randomize} disabled={isSorting}>
+                    Randomize Array
+                </button>
+                <select onChange={algorithmHandler} disabled={isSorting}>
+                    <option value="bubbleSort">Bubble Sort</option>
+                    <option value="insertionSort">Insertion Sort</option>
+                    <option value="selectionSort">Selection Sort</option>
+                    <option value="mergeSort">Merge Sort</option>
+                    <option value="quickSort">Quick Sort</option>
+                </select>
             </div>
             <div className={classes.settings}>
-                <button onClick={() => setSettings((prevState) => !prevState)}>⚙️</button>
+                <button onClick={() => setSettings((prevState) => !prevState)}>
+                    ⚙️
+                </button>
                 {settings && (
                     <div>
                         <div className={classes.slider}>
@@ -69,7 +69,7 @@ const Header: React.FC<{
                                 id="speed"
                                 type="range"
                                 min="1"
-                                max="100"
+                                max="30"
                                 value={speed}
                                 onChange={speedHandler}
                                 disabled={isSorting}

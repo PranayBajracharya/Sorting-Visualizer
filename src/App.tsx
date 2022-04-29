@@ -11,7 +11,9 @@ import Order from "./algorithms/type";
 import "./App.css";
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
+// random number array generator
 const randomizedArray = (length: number): number[] => {
     const randomArray = Array.from(Array(length + 1).keys()).slice(1);
 
@@ -31,21 +33,21 @@ function App() {
     const [comparing, setComparing] = useState<Array<number | null>>([]);
     const [swapping, setSwapping] = useState<Array<number | null>>([]);
     const [sortedIndex, setSortedIndex] = useState<number[]>([]);
-    const [speed, setSpeed] = useState<number>(10);
+    const [speed, setSpeed] = useState<number>(4);
     const [length, setLength] = useState<number>(10);
     const [isSorting, setIsSorting] = useState<boolean>(false);
     const [sortingArray, setSortingArray] = useState<number[]>(
         randomizedArray(length)
     );
     
-    const reset = (): void => {
+    const reset = (): void => {     // resets states to initial states
         setSwapping([]);
         setComparing([]);
         setSortedIndex([]);
         setIsSorting(false);
     }
 
-    const randomize = (): void => {
+    const randomize = (): void => {     // randomize button
         reset();
         setSortingArray(randomizedArray(length));
     };
@@ -76,7 +78,7 @@ function App() {
                 if (i === order.length - 1) {
                     setIsSorting(false);
                 }
-            }, i * (5000 / speed));
+            }, i * (800 / speed));
         }
     };
 
@@ -103,7 +105,7 @@ function App() {
     } 
 
     return (
-        <div className="App">
+        <>
             <Header
                 setStart={SortHandler}
                 randomize={randomize}
@@ -122,7 +124,8 @@ function App() {
                 sorted={sortedIndex}
                 length={length}
             />
-        </div>
+            <Footer />
+        </>
     );
 }
 

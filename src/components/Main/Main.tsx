@@ -38,36 +38,6 @@ const Main: React.FC<{
                     );
                 })}
             </div>
-            <div className={classes.labels}>
-                <div>Labels: </div>
-                <div>
-                    <div
-                        className={classes.colorBox}
-                        style={{
-                            backgroundColor: "yellow",
-                        }}
-                    ></div>
-                    <span>Comparing</span>
-                </div>
-                <div>
-                    <div
-                        className={classes.colorBox}
-                        style={{
-                            backgroundColor: "red",
-                        }}
-                    ></div>
-                    <span>Swapping</span>
-                </div>
-                <div>
-                    <div
-                        className={classes.colorBox}
-                        style={{
-                            backgroundColor: "green",
-                        }}
-                    ></div>
-                    <span>Sorted</span>
-                </div>
-            </div>
         </>
     );
 };

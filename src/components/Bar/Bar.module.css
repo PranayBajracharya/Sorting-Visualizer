@@ -11,6 +11,6 @@
     min-width: 20px;
     position: relative;
     transition-property: height;
-    transition-duration: 100ms;
+    transition-duration: 50ms;
     transition-timing-function: ease-out;
 }
