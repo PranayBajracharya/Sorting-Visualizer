@@ -1,37 +1,61 @@
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 10vh;
+    background-color: #222;
+    position: relative;
 }
 
-.settings {
+.header h1 {
+    margin-left: 5rem;
+}
+
+.nav {
     display: flex;
 }
 
-.settings > * {
+.nav > * {
     margin-right: 20px;
-}
-
-.slider {
-    display: flex;
-    align-items: center;
-}
-
-.slider label {
-    margin-right: 10px;
 }
 
 button,
 select {
-    height: 30px;
+    height: 100%;
     padding: 8px;
     background-color: white;
     border: none;
+    border-radius: 8px;
 }
 
 button:hover,
 select:hover {
     background-color: #eee;
+}
+
+.settings {
+    margin-right: 5rem;
+}
+
+.settings > button {
+    font-size: 1.3rem;
+    padding: 4px;
+}
+
+.settings > div {
+    background-color: #222;
+    position: absolute;
+    top: 100%;
+    right: 0;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+.slider label {
+    margin-right: 10px;
 }

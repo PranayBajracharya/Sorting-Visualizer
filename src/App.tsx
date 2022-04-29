@@ -27,12 +27,12 @@ const randomizedArray = (length: number): number[] => {
 };
 
 function App() {
-    const [algorithm, setAlgorithm] = useState<string>("selectionSort");
+    const [algorithm, setAlgorithm] = useState<string>("bubbleSort");
     const [comparing, setComparing] = useState<Array<number | null>>([]);
     const [swapping, setSwapping] = useState<Array<number | null>>([]);
     const [sortedIndex, setSortedIndex] = useState<number[]>([]);
-    const [speed, setSpeed] = useState<number>(15);
-    const [length, setLength] = useState<number>(20);
+    const [speed, setSpeed] = useState<number>(10);
+    const [length, setLength] = useState<number>(10);
     const [isSorting, setIsSorting] = useState<boolean>(false);
     const [sortingArray, setSortingArray] = useState<number[]>(
         randomizedArray(length)
@@ -76,7 +76,7 @@ function App() {
                 if (i === order.length - 1) {
                     setIsSorting(false);
                 }
-            }, i * (1000 / speed));
+            }, i * (5000 / speed));
         }
     };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import classes from "./Header.module.css";
 
 const Header: React.FC<{
@@ -12,6 +12,8 @@ const Header: React.FC<{
     isSorting: boolean;
     reset: () => void;
 }> = (props) => {
+    const [settings, setSettings] = useState<boolean>(false);
+
     const {
         setStart,
         randomize,
@@ -35,36 +37,12 @@ const Header: React.FC<{
 
     const algorithmHandler = (event: any) => {
         setAlgorithm(event.target.value);
-    }
+    };
 
     return (
         <header className={classes.header}>
             <h1>Sorting Visualizer</h1>
-            <div className={classes.settings}>
-                <div className={classes.slider}>
-                    <label htmlFor="speed">Speed</label>
-                    <input
-                        id="speed"
-                        type="range"
-                        min="1"
-                        max="100"
-                        value={speed}
-                        onChange={speedHandler}
-                        disabled={isSorting}
-                    />
-                </div>
-                <div className={classes.slider}>
-                    <label htmlFor="length">Length</label>
-                    <input
-                        id="length"
-                        type="range"
-                        min="5"
-                        max="50"
-                        value={length}
-                        onChange={lengthHandler}
-                        disabled={isSorting}
-                    />
-                </div>
+            <div className={classes.nav}>
                 <div>
                     <select onChange={algorithmHandler} disabled={isSorting}>
                         <option value="bubbleSort">Bubble Sort</option>
@@ -80,6 +58,37 @@ const Header: React.FC<{
                 <button onClick={setStart} disabled={isSorting}>
                     Start Sorting
                 </button>
+            </div>
+            <div className={classes.settings}>
+                <button onClick={() => setSettings((prevState) => !prevState)}>⚙️</button>
+                {settings && (
+                    <div>
+                        <div className={classes.slider}>
+                            <label htmlFor="speed">Speed</label>
+                            <input
+                                id="speed"
+                                type="range"
+                                min="1"
+                                max="100"
+                                value={speed}
+                                onChange={speedHandler}
+                                disabled={isSorting}
+                            />
+                        </div>
+                        <div className={classes.slider}>
+                            <label htmlFor="length">Length</label>
+                            <input
+                                id="length"
+                                type="range"
+                                min="5"
+                                max="50"
+                                value={length}
+                                onChange={lengthHandler}
+                                disabled={isSorting}
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
         </header>
     );
