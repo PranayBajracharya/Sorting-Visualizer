@@ -7,3 +7,18 @@
     font-size: 12px;
     height: 70vh;
 }
+
+.timer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    margin: 10px;
+    font-size: 1.8rem;
+}
+
+.timer > span {
+    margin-left: 4px;
+    font-size: 1.4rem;
+}

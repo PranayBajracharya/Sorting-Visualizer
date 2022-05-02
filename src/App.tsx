@@ -33,7 +33,7 @@ function App() {
     const [comparing, setComparing] = useState<Array<number | null>>([]);
     const [swapping, setSwapping] = useState<Array<number | null>>([]);
     const [sortedIndex, setSortedIndex] = useState<number[]>([]);
-    const [speed, setSpeed] = useState<number>(4);
+    const [speed, setSpeed] = useState<number>(8);
     const [length, setLength] = useState<number>(10);
     const [isSorting, setIsSorting] = useState<boolean>(false);
     const [sortingArray, setSortingArray] = useState<number[]>(
@@ -108,6 +108,7 @@ function App() {
                 reset={reset}
             />
             <Main
+                isSorting={isSorting}
                 sortingArray={sortingArray}
                 comparing={comparing}
                 swapping={swapping}
