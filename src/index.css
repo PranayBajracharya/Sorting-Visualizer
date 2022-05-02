@@ -1,3 +1,12 @@
+:root {
+    --primary: #00ffcc;
+    --primary-dark: #00daae;
+    --background: #333;
+    --background-dark: #222;
+    --color-dark: #111;
+    --color-light: #eee;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,8 +20,8 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #333;
-    color: #eee;
+    background-color: var(--background);
+    color: var(--color-light);
 }
 
 #root {

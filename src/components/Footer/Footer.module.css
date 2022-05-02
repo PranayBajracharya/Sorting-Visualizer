@@ -5,7 +5,8 @@
     max-width: 800px;
     width: 100%;
     flex-grow: 1;
-    background-color: #222;
+    color: var(--primary);
+    background-color: var(--background-dark);
 }
 
 .footer > div {

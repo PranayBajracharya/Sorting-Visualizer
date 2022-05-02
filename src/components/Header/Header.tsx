@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { MdSettings } from 'react-icons/md';
+import { FaRandom, FaPlay } from 'react-icons/fa';
+
 import classes from "./Header.module.css";
 
 const Header: React.FC<{
@@ -44,10 +47,10 @@ const Header: React.FC<{
             <h1>Sorting Visualizer</h1>
             <div className={classes.nav}>
                 <button onClick={setStart} disabled={isSorting}>
-                    Start Sorting
+                    <FaPlay />
                 </button>
                 <button onClick={randomize} disabled={isSorting}>
-                    Randomize Array
+                    <FaRandom />
                 </button>
                 <select onChange={algorithmHandler} disabled={isSorting}>
                     <option value="bubbleSort">Bubble Sort</option>
@@ -59,7 +62,7 @@ const Header: React.FC<{
             </div>
             <div className={classes.settings}>
                 <button onClick={() => setSettings((prevState) => !prevState)}>
-                    ⚙️
+                    <MdSettings />
                 </button>
                 {settings && (
                     <div>
