@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
                 <div
                     className={classes.colorBox}
                     style={{
-                        backgroundColor: "yellow",
+                        backgroundColor: "#ffff2a",
                     }}
                 ></div>
                 <span>Comparing</span>
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                 <div
                     className={classes.colorBox}
                     style={{
-                        backgroundColor: "green",
+                        backgroundColor: "#078912",
                     }}
                 ></div>
                 <span>Sorted</span>

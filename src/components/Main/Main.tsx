@@ -15,10 +15,10 @@ const Main: React.FC<{
         <>
             <div className={classes.main}>
                 {sortingArray.map((arrayItem, index) => {
-                    let color: string = "lavender";
+                    let color: string = "#F2ECFF";
 
                     if (comparing.includes(index)) {
-                        color = "yellow";
+                        color = "#ffff2a";
                     }
 
                     if (swapping.includes(index)) {
@@ -26,7 +26,7 @@ const Main: React.FC<{
                     }
 
                     if (sorted.includes(index)) {
-                        color = "green";
+                        color = "#078912";
                     }
                     return (
                         <Bar

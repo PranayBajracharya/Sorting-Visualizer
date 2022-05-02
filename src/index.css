@@ -1,10 +1,11 @@
 :root {
-    --primary: #00ffcc;
-    --primary-dark: #00daae;
+    --primary: #F2ECFF;
+    --primary-dark: #b8b8b8;
     --background: #333;
     --background-dark: #222;
     --color-dark: #111;
     --color-light: #eee;
+    --test: #078912;
 }
 
 * {
