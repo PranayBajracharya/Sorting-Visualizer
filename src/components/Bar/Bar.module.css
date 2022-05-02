@@ -3,12 +3,12 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 5px;
+    margin-right: 4px;
     height: 100%;
 }
 
 .bar {
-    min-width: 20px;
+    min-width: 1rem;
     position: relative;
     transition-property: height;
     transition-duration: 50ms;

@@ -83,25 +83,15 @@ function App() {
     };
 
     const SortHandler = () => {
-        switch (algorithm) {
-            case "bubbleSort":
-                startSorting(bubbleSort(sortingArray));
-                break;
-            case "insertionSort":
-                startSorting(insertionSort(sortingArray));
-                break;
-            case "selectionSort":
-                startSorting(selectionSort(sortingArray));
-                break;
-            case "mergeSort":
-                startSorting(mergeSort(sortingArray));
-                break;
-            case "quickSort":
-                startSorting(quickSort(sortingArray));
-                break;
-            default:
-                break;
+        const algo: { [key: string]: Order } = {
+            "bubbleSort" : bubbleSort(sortingArray),
+            "insertionSort" : insertionSort(sortingArray),
+            "selectionSort" : selectionSort(sortingArray),
+            "mergeSort" : mergeSort(sortingArray),
+            "quickSort" : quickSort(sortingArray),
         }
+        const chosenAlgorithm = algo[algorithm] ?? algo["bubbleSort"];
+        startSorting(chosenAlgorithm);
     } 
 
     return (

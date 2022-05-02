@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { MdSettings } from 'react-icons/md';
-import { FaRandom, FaPlay } from 'react-icons/fa';
+import { MdSettings } from "react-icons/md";
+import { FaRandom, FaPlay } from "react-icons/fa";
 
 import classes from "./Header.module.css";
 
